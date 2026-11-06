@@ -51,6 +51,9 @@ footer{display:flex;justify-content:space-between;gap:15px;padding:18px 0 27px;b
           <option value="24">Basketball · 24 cm</option>
           <option value="7.37">Baseball · 7.37 cm</option>
           <option value="4.267">Golf ball · 4.267 cm</option>
+          <option value="0.8">Pea · about 8 mm</option>
+          <option value="0.05">Grain of sand · 0.5 mm</option>
+          <option value="1.6815e-13">Hydrogen nucleus (proton) · about 1.68 fm</option>
           <option value="custom">Custom diameter…</option>
         </select>
       </div>
@@ -80,7 +83,7 @@ footer{display:flex;justify-content:space-between;gap:15px;padding:18px 0 27px;b
     <div class="insight"><span class="insight-mark" aria-hidden="true">✳</span><div id="insight-text"></div></div>
   </section>
   <aside class="method">
-    <strong>How the scale works:</strong> stand-in diameter ÷ real diameter of object A = scale factor. Multiply object B’s real diameter and the real separation by that factor. Distances are center-to-center; planets use average or mean distances. Galaxy “center” comparisons treat the centers as points.
+    <strong>How the scale works:</strong> stand-in diameter ÷ real diameter of object A = scale factor. Multiply object B’s real diameter and the real separation by that factor. Distances are center-to-center; planets use average or mean distances. Galaxy “center” comparisons treat the centers as points. Pea (8 mm) and sand (0.5 mm) sizes are representative. “Hydrogen nucleus” means one proton; 1.68 fm is an illustrative diameter, twice the proton’s rms charge radius, not a hard edge.
     <div class="sources" aria-label="Sources">
       <a href="https://science.nasa.gov/moon/by-the-numbers/" target="_blank" rel="noreferrer">NASA · Earth and Moon</a>
       <a href="https://science.nasa.gov/solar-system/planets/planet-sizes-and-locations-in-our-solar-system/" target="_blank" rel="noreferrer">NASA · Planet distances</a>
@@ -91,6 +94,8 @@ footer{display:flex;justify-content:space-between;gap:15px;padding:18px 0 27px;b
       <a href="https://www.usga.org/equipment-standards/equipment-rules-2019/equipment-rules/part-4-rule-4.html" target="_blank" rel="noreferrer">USGA · Golf ball minimum size</a>
       <a href="https://content.mlb.com/documents/2/2/4/305750224/2019_Official_Baseball_Rules_FINAL_.pdf" target="_blank" rel="noreferrer">MLB · Baseball circumference</a>
       <a href="https://www.nba.com/news/faq" target="_blank" rel="noreferrer">NBA · Basketball size</a>
+      <a href="https://pubs.usgs.gov/of/2006/1046/htmldocs/nomenclature.htm" target="_blank" rel="noreferrer">USGS · Sand grain sizes</a>
+      <a href="https://physics.nist.gov/cgi-bin/cuu/Value?rp%7Csearch_for=charge" target="_blank" rel="noreferrer">NIST CODATA · Proton charge radius</a>
     </div>
   </aside>
 </main>
@@ -109,8 +114,8 @@ footer{display:flex;justify-content:space-between;gap:15px;padding:18px 0 27px;b
   const $=id=>document.getElementById(id);
   const pairSelect=$("pair"),anchorSelect=$("anchor");
   const fmt=n=>new Intl.NumberFormat("en-US",{maximumFractionDigits:2}).format(n);
-  function sizeText(m){if(m>=1000)return fmt(m/1000)+" km";if(m>=1)return fmt(m)+" m";if(m>=.01)return fmt(m*100)+" cm";if(m>=.001)return fmt(m*1000)+" mm";return fmt(m*1e6)+" μm"}
-  function distanceText(m){if(m<1)return fmt(m*100)+" cm";if(m<1000)return fmt(m)+" m";if(m<1e9)return fmt(m/1000)+" km";return fmt(m/1e9)+" million km"}
+  function sizeText(m){if(m>=1000)return fmt(m/1000)+" km";if(m>=1)return fmt(m)+" m";if(m>=.01)return fmt(m*100)+" cm";if(m>=.001)return fmt(m*1000)+" mm";if(m>=1e-6)return fmt(m*1e6)+" μm";if(m>=1e-9)return fmt(m*1e9)+" nm";if(m>=1e-12)return fmt(m*1e12)+" pm";if(m>=1e-18)return fmt(m*1e15)+" fm";return m.toExponential(2)+" m"}
+  function distanceText(m){if(m<1e-18)return m.toExponential(2)+" m";if(m<1e-15)return fmt(m*1e18)+" am";if(m<1e-12)return fmt(m*1e15)+" fm";if(m<1e-9)return fmt(m*1e12)+" pm";if(m<1e-6)return fmt(m*1e9)+" nm";if(m<1e-3)return fmt(m*1e6)+" μm";if(m<1e-2)return fmt(m*1000)+" mm";if(m<1)return fmt(m*100)+" cm";if(m<1000)return fmt(m)+" m";if(m<1e9)return fmt(m/1000)+" km";return fmt(m/1e9)+" million km"}
   function actualDistanceText(km){if(km>=LY)return fmt(km/LY)+" light-years";if(km>=1e9)return fmt(km/1e9)+" billion km";if(km>=1e6)return fmt(km/1e6)+" million km";return fmt(km)+" km"}
   function anchorSizeCm(){if(anchorSelect.value==="custom"){const v=Number($("custom-size").value);return Number.isFinite(v)&&v>0?v:10}return Number(anchorSelect.value)}
   function scaleWord(){if(anchorSelect.value==="custom")return "custom sphere";return anchorSelect.options[anchorSelect.selectedIndex].text.split(" · ")[0]}
@@ -123,7 +128,7 @@ footer{display:flex;justify-content:space-between;gap:15px;padding:18px 0 27px;b
     $("pair-distance").textContent="Actual separation · "+actualDistanceText(p.distanceKm);
     $("anchor-stat-label").textContent=p.a+" becomes";
     $("anchor-result").textContent=scaleWord()+" · "+sizeText(standinM);
-    $("scale-ratio").textContent="Scale ratio · 1 : "+fmt(1/ratio);
+    $("scale-ratio").textContent="Scale ratio · 1 : "+((1/ratio)>=1e15?(1/ratio).toExponential(2):fmt(1/ratio));
     $("gap-result").textContent=distanceText(scaledGapM);
     $("gap-sub").textContent=fmt(scaledGapM/standinM)+" "+scaleWord().toLowerCase()+" diameters between centers";
     $("target-stat-label").textContent=p.b+" becomes";
