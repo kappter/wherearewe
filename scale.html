@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101719">
+<meta name="description" content="Scale cosmic distances with familiar objects: a basketball, baseball, or golf ball.">
+<title>Scale the Cosmos — Where Are We?</title>
+<style>
+:root{color-scheme:dark;--night:#101719;--panel:#1c292a;--paper:#f2efdf;--muted:#b2c0b7;--quiet:#81918a;--lime:#d6f36a;--aqua:#7ee4d1;--gold:#ffc878;--line:#ffffff20;--serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 55% 0%,#263737 0,transparent 42%),var(--night);color:var(--paper);font:16px/1.5 var(--sans)}a{color:inherit}.wrap{width:min(1040px,calc(100% - 40px));margin:auto}
+header{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:23px 0;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:750}.mark{display:grid;place-items:center;width:30px;height:30px;border:1px solid #d6f36a80;border-radius:50%;color:var(--lime);font:18px var(--serif)}.back{color:var(--muted);font-size:.8rem;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:8px 12px}.back:hover{color:var(--lime);border-color:var(--lime)}
+main{padding:55px 0 70px}.eyebrow{margin:0 0 11px;color:var(--lime);font-size:.7rem;font-weight:750;letter-spacing:.18em;text-transform:uppercase}h1{margin:0;font:500 clamp(2.7rem,7vw,5.2rem)/.98 var(--serif);letter-spacing:-.065em}.lede{max-width:690px;color:var(--muted);font-size:1.04rem;margin:20px 0 34px}
+.panel{padding:22px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#ffffff08,transparent 55%),var(--panel);box-shadow:0 20px 55px #0002}.controls{display:grid;grid-template-columns:1.4fr 1fr;gap:15px}.field{display:grid;gap:7px}.field label{font-size:.76rem;color:var(--muted);font-weight:650}.field select,.field input{width:100%;min-height:46px;padding:10px 12px;border:1px solid #ffffff25;border-radius:9px;background:#131e20;color:var(--paper);font:inherit}.field select:focus,.field input:focus{outline:2px solid var(--lime);outline-offset:2px}.hint{color:var(--quiet);font-size:.74rem;margin:15px 0 0}
+.custom-size{display:none}.custom-size.visible{display:grid}
+.result-top{display:flex;justify-content:space-between;align-items:end;gap:24px;margin:34px 0 16px}.result-top h2{margin:0;font:400 1.85rem/1.1 var(--serif);letter-spacing:-.04em}.pair-label{color:var(--quiet);font-size:.77rem;text-align:right}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.stat{min-height:124px;padding:17px;border:1px solid #ffffff16;border-radius:12px;background:#0c1416a8}.stat-label{color:var(--quiet);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase}.stat-value{margin-top:7px;font:400 clamp(1.35rem,3vw,2rem)/1.12 var(--serif);letter-spacing:-.025em;color:var(--paper);overflow-wrap:anywhere}.stat-sub{margin-top:7px;color:var(--muted);font-size:.75rem}
+.scene{margin-top:13px;padding:20px 22px;border:1px solid #ffffff16;border-radius:12px;background:#0c1416a8}.scene-head{display:flex;justify-content:space-between;gap:15px;align-items:center;color:var(--quiet);font-size:.71rem;letter-spacing:.1em;text-transform:uppercase}.scene-track{height:132px;display:grid;grid-template-columns:minmax(70px,1fr) minmax(0,3fr) minmax(70px,1fr);align-items:center;position:relative}.object{position:relative;z-index:1;display:grid;place-items:center;justify-self:center;width:var(--size,42px);height:var(--size,42px);min-width:3px;min-height:3px;border-radius:50%;background:radial-gradient(circle at 32% 27%,#fff8,var(--color,#d6f36a) 44%,#1a2523 130%);box-shadow:0 0 27px color-mix(in srgb,var(--color,#d6f36a) 32%,transparent);border:1px solid color-mix(in srgb,var(--color,#d6f36a) 70%,white)}.object.point{width:9px!important;height:9px!important;min-width:9px;min-height:9px;background:var(--aqua);box-shadow:0 0 18px var(--aqua)}.gap{position:relative;display:grid;place-items:center;height:100%}.gap::before{content:"";height:1px;width:100%;background:linear-gradient(90deg,#ffffff20,var(--lime),#ffffff20)}.gap::after{content:"";position:absolute;right:0;width:8px;height:8px;border-top:1px solid var(--lime);border-right:1px solid var(--lime);transform:rotate(45deg)}.gap-label{position:absolute;z-index:2;top:50%;transform:translateY(-50%);padding:5px 9px;border-radius:999px;background:#0c1416;color:var(--lime);font-size:.78rem;font-weight:700;white-space:nowrap}.scene-label{position:absolute;top:calc(50% + 30px);left:50%;transform:translateX(-50%);width:130px;text-align:center;color:var(--muted);font-size:.7rem}.object-caption{margin-top:-8px;text-align:center;color:var(--muted);font-size:.75rem}.scene-note{margin:11px 0 0;color:var(--quiet);font-size:.7rem;text-align:center}
+.insight{display:grid;grid-template-columns:35px 1fr;gap:12px;align-items:start;margin-top:13px;padding:16px;border-left:2px solid var(--aqua);border-radius:0 10px 10px 0;background:#7ee4d108;color:var(--muted);font-size:.84rem}.insight-mark{display:grid;place-items:center;width:28px;height:28px;border:1px solid #7ee4d160;border-radius:50%;color:var(--aqua)}
+.method{margin-top:34px;padding:20px 0 0;border-top:1px solid var(--line);color:var(--quiet);font-size:.78rem}.method strong{color:var(--muted)}.sources{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px 15px}.sources a{color:var(--muted);text-underline-offset:3px}.sources a:hover{color:var(--lime)}
+footer{display:flex;justify-content:space-between;gap:15px;padding:18px 0 27px;border-top:1px solid var(--line);color:var(--quiet);font-size:.72rem}footer a{color:var(--muted);text-underline-offset:3px}
+@media(max-width:660px){.wrap{width:min(100% - 30px,500px)}main{padding:42px 0 55px}.controls{grid-template-columns:1fr}.result-top{align-items:start;flex-direction:column;gap:7px}.pair-label{text-align:left}.stats{grid-template-columns:1fr}.stat{min-height:unset}.stat-value{font-size:1.7rem}.scene{padding:16px 12px}.scene-track{grid-template-columns:60px minmax(0,3fr) 60px}.scene-label{width:100px}footer{display:block}footer p+p{margin-top:6px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <a class="brand" href="https://kappter.github.io/wherearewe/"><span class="mark" aria-hidden="true">w</span>wherearewe</a>
+  <a class="back" href="https://kappter.github.io/wherearewe/">← Back to the hub</a>
+</header>
+<main class="wrap">
+  <p class="eyebrow">A cosmic scale model</p>
+  <h1>How far apart<br>is <em>far?</em></h1>
+  <p class="lede">Shrink one object to a familiar size—a basketball, baseball, or golf ball. The tool scales its partner and the distance between them by the same ratio. Then try hopping from our neighborhood to the galaxy next door.</p>
+  <section class="panel" aria-label="Scale controls">
+    <div class="controls">
+      <div class="field">
+        <label for="pair">Choose a cosmic pair</label>
+        <select id="pair">
+          <option value="earth-moon">Earth ↔ Moon</option>
+          <option value="sun-earth">Sun ↔ Earth</option>
+          <option value="sun-neptune">Sun ↔ Neptune</option>
+          <option value="sun-proxima">Sun ↔ Proxima Centauri</option>
+          <option value="sun-galactic-center">Sun ↔ Milky Way center</option>
+          <option value="milkyway-andromeda">Milky Way center ↔ Andromeda center</option>
+        </select>
+      </div>
+      <div class="field">
+        <label id="anchor-label" for="anchor">Scale the first object to</label>
+        <select id="anchor">
+          <option value="24">Basketball · 24 cm</option>
+          <option value="7.37">Baseball · 7.37 cm</option>
+          <option value="4.267">Golf ball · 4.267 cm</option>
+          <option value="custom">Custom diameter…</option>
+        </select>
+      </div>
+      <div class="field custom-size" id="custom-wrap">
+        <label for="custom-size">Custom stand-in diameter (cm)</label>
+        <input id="custom-size" type="number" min="0.01" max="1000000" step="any" value="10" inputmode="decimal">
+      </div>
+    </div>
+    <p class="hint" id="pair-hint">A regulation-size basketball represents Earth. The Moon keeps the same size ratio and the real average Earth–Moon separation.</p>
+  </section>
+  <section aria-live="polite" aria-labelledby="result-title">
+    <div class="result-top"><h2 id="result-title">Earth and Moon, scaled</h2><div class="pair-label" id="pair-distance"></div></div>
+    <div class="stats">
+      <article class="stat"><div class="stat-label" id="anchor-stat-label">Earth becomes</div><div class="stat-value" id="anchor-result"></div><div class="stat-sub" id="scale-ratio"></div></article>
+      <article class="stat"><div class="stat-label">Scaled gap · center to center</div><div class="stat-value" id="gap-result"></div><div class="stat-sub" id="gap-sub"></div></article>
+      <article class="stat"><div class="stat-label" id="target-stat-label">The Moon becomes</div><div class="stat-value" id="target-result"></div><div class="stat-sub" id="target-sub"></div></article>
+    </div>
+    <div class="scene" aria-label="Schematic comparison">
+      <div class="scene-head"><span id="scene-a-label"></span><span>Scaled relationship</span><span id="scene-b-label"></span></div>
+      <div class="scene-track">
+        <div class="object" id="object-a" aria-hidden="true"></div>
+        <div class="gap"><span class="gap-label" id="scene-gap"></span><span class="scene-label">center-to-center gap</span></div>
+        <div class="object" id="object-b" aria-hidden="true"></div>
+      </div>
+      <div class="scene-note">Object diameters are proportional to each other; the gap is compressed to fit on screen.</div>
+    </div>
+    <div class="insight"><span class="insight-mark" aria-hidden="true">✳</span><div id="insight-text"></div></div>
+  </section>
+  <aside class="method">
+    <strong>How the scale works:</strong> stand-in diameter ÷ real diameter of object A = scale factor. Multiply object B’s real diameter and the real separation by that factor. Distances are center-to-center; planets use average or mean distances. Galaxy “center” comparisons treat the centers as points.
+    <div class="sources" aria-label="Sources">
+      <a href="https://science.nasa.gov/moon/by-the-numbers/" target="_blank" rel="noreferrer">NASA · Earth and Moon</a>
+      <a href="https://science.nasa.gov/solar-system/planets/planet-sizes-and-locations-in-our-solar-system/" target="_blank" rel="noreferrer">NASA · Planet distances</a>
+      <a href="https://science.nasa.gov/exoplanets/other-stars-other-worlds/our-nearest-celestial-neighbor-an-exotic-3-star-system/" target="_blank" rel="noreferrer">NASA · Proxima Centauri</a>
+      <a href="https://exoplanetarchive.ipac.caltech.edu/overview/Proxima" target="_blank" rel="noreferrer">NASA Exoplanet Archive · Proxima radius</a>
+      <a href="https://science.nasa.gov/asset/hubble/milky-way-bulge/" target="_blank" rel="noreferrer">NASA · Galactic center distance</a>
+      <a href="https://science.nasa.gov/universe/exoplanets/our-milky-way-galaxy-how-big-is-space/" target="_blank" rel="noreferrer">NASA · Milky Way and Andromeda size</a>
+      <a href="https://www.usga.org/equipment-standards/equipment-rules-2019/equipment-rules/part-4-rule-4.html" target="_blank" rel="noreferrer">USGA · Golf ball minimum size</a>
+      <a href="https://content.mlb.com/documents/2/2/4/305750224/2019_Official_Baseball_Rules_FINAL_.pdf" target="_blank" rel="noreferrer">MLB · Baseball circumference</a>
+      <a href="https://www.nba.com/news/faq" target="_blank" rel="noreferrer">NBA · Basketball size</a>
+    </div>
+  </aside>
+</main>
+<footer class="wrap"><p>Scale the Cosmos · A Where Are We? tool</p><p><a href="https://github.com/kappter/wherearewe">Open the project on GitHub ↗</a></p></footer>
+<script>
+(()=>{
+  const AU=149597870.7, LY=9.4607e12;
+  const common={basketball:24,baseball:7.37,golf:4.267};
+  const pairs={
+    "earth-moon":{a:"Earth",b:"Moon",diamA:12742,diamB:3475,distance:384400,unit:"km",aColor:"#4f9fc7",bColor:"#c8d2dc",hint:"A basketball represents Earth. The Moon keeps the same size ratio and the real average Earth–Moon separation.",insight:"This is a center-to-center distance. Earth and Moon are not touching: there is about 30 Earth diameters between their centers."},
+    "sun-earth":{a:"Sun",b:"Earth",diamA:1391400,diamB:12742,distance:AU,unit:"km",aColor:"#ffc878",bColor:"#55b9c8",hint:"The Sun is the anchor. Earth becomes a tiny bead at the same scale, 1 AU away.",insight:"This comparison shows why a scale model of the Sun–Earth distance needs a lot of empty space: even a basketball-sized Sun puts Earth many meters away."},
+    "sun-neptune":{a:"Sun",b:"Neptune",diamA:1391400,diamB:49244,distance:4.5e9,unit:"km",aColor:"#ffc878",bColor:"#668be9",hint:"Neptune’s average distance is about 4.5 billion km from the Sun. The tool uses the average distance, not a snapshot of orbital positions.",insight:"At basketball scale, Neptune is still just a small bead—but it would be hundreds of meters away from the Sun."},
+    "sun-proxima":{a:"Sun",b:"Proxima Centauri",diamA:1391400,diamB:1391400*.154,distance:4.25*LY,unit:"ly",aColor:"#ffc878",bColor:"#ee8b6e",hint:"Proxima Centauri is the nearest individual star and part of the Alpha Centauri system. Its radius is about 0.154 times the Sun’s.",insight:"Golf-ball Sun in Salt Lake City: Proxima lands about 1,230 km away—roughly twice the straight-line Salt Lake City–Denver distance. So your Denver image has the right feel, but the scaled star lands farther out."},
+    "sun-galactic-center":{a:"Sun",b:"Milky Way center",diamA:1391400,diamB:null,distance:26000*LY,unit:"ly",aColor:"#ffc878",bColor:"#d6f36a",hint:"NASA estimates the Sun is about 26,000 light-years from the Milky Way’s center. The center is shown as a point.",insight:"Even with the Sun shrunk to a golf ball, the Milky Way’s center is millions of kilometers away in the model—many times the Earth–Moon distance."},
+    "milkyway-andromeda":{a:"Milky Way",b:"Andromeda",diamA:100000,diamB:220000,distance:2500000,unit:"ly",aColor:"#7ee4d1",bColor:"#bc9df5",hint:"The Milky Way’s disk is about 100,000 light-years across. Andromeda is about 220,000 light-years across; their centers are about 2.5 million light-years apart.",insight:"Shrink the Milky Way’s disk to a basketball: Andromeda’s disk becomes roughly 53 cm across, with the two galaxy centers about 6 meters apart. Smaller dwarf galaxies are closer; Andromeda is our nearest major galaxy neighbor."}
+  };
+  const $=id=>document.getElementById(id);
+  const pairSelect=$("pair"),anchorSelect=$("anchor");
+  const fmt=n=>new Intl.NumberFormat("en-US",{maximumFractionDigits:2}).format(n);
+  function diameterText(m){if(m>=1000)return fmt(m/100)+" m";if(m>=1)return fmt(m)+" cm";if(m>=.1)return fmt(m*10)+" mm";if(m>=.01)return fmt(m*10)+" mm";return fmt(m*10000)+" μm";}
+  function distanceText(m){if(m<1)return fmt(m*100)+" cm";if(m<1000)return fmt(m)+" m";if(m<1e6)return fmt(m/1000)+" km";return fmt(m/1e6)+" million km";}
+  function actualDistanceText(d,unit){if(unit==="ly")return fmt(d)+" light-years";if(d>=1e9)return fmt(d/1e9)+" billion km";if(d>=1e6)return fmt(d/1e6)+" million km";return fmt(d)+" km";}
+  function anchorSizeCm(){if(anchorSelect.value==="custom"){const v=Number($("custom-size").value);return Number.isFinite(v)&&v>0?v:10}return Number(anchorSelect.value)}
+  function scaleWord(){if(anchorSelect.value==="custom")return "custom sphere";return anchorSelect.options[anchorSelect.selectedIndex].text.split(" · ")[0]}
+  function render(){
+    const p=pairs[pairSelect.value], standinM=anchorSizeCm()/100,ratio=standinM/p.diamA;
+    const otherSize=p.diamB===null?null:p.diamB*ratio;
+    const scaledGap=p.distance*ratio;
+    $("custom-wrap").classList.toggle("visible",anchorSelect.value==="custom");
+    $("result-title").textContent=p.a+" and "+p.b+", scaled";
+    $("pair-distance").textContent="Actual separation · "+actualDistanceText(p.distance,p.unit);
+    $("anchor-stat-label").textContent=p.a+" becomes";
+    $("anchor-result").textContent=scaleWord()+" · "+diameterText(anchorSizeCm());
+    $("scale-ratio").textContent="Scale ratio · 1 : "+fmt(1/ratio);
+    $("gap-result").textContent=distanceText(scaledGap);
+    $("gap-sub").textContent=fmt(scaledGap/standinM)+" "+scaleWord().toLowerCase()+" diameters between centers";
+    $("target-stat-label").textContent=p.b+" becomes";
+    $("target-result").textContent=otherSize===null?"a point":diameterText(otherSize);
+    $("target-sub").textContent=otherSize===null?"Centers have no physical diameter in this model":"Scaled diameter · "+fmt(otherSize)+" cm";
+    $("scene-a-label").textContent=p.a;
+    $("scene-b-label").textContent=p.b;
+    $("scene-gap").textContent=distanceText(scaledGap);
+    $("insight-text").textContent=p.insight;
+    $("pair-hint").textContent=p.hint;
+    const aPx=Math.max(20,Math.min(76,20+anchorSizeCm()*.7));
+    const bRatio=otherSize===null?0.13:otherSize/anchorSizeCm();
+    const bPx=otherSize===null?7:Math.max(4,Math.min(112,aPx*bRatio));
+    $("object-a").style.setProperty("--size",aPx+"px");
+    $("object-a").style.setProperty("--color",p.aColor);
+    $("object-b").style.setProperty("--size",bPx+"px");
+    $("object-b").style.setProperty("--color",p.bColor);
+    $("object-b").classList.toggle("point",otherSize===null);
+    $("anchor-label").textContent="Scale "+p.a+" to";
+  }
+  pairSelect.addEventListener("change",render);anchorSelect.addEventListener("change",render);$("custom-size").addEventListener("input",render);render();
+})();
+</script>
+</body>
+</html>
