@@ -98,51 +98,51 @@ footer{display:flex;justify-content:space-between;gap:15px;padding:18px 0 27px;b
 <script>
 (()=>{
   const AU=149597870.7, LY=9.4607e12;
-  const common={basketball:24,baseball:7.37,golf:4.267};
   const pairs={
-    "earth-moon":{a:"Earth",b:"Moon",diamA:12742,diamB:3475,distance:384400,unit:"km",aColor:"#4f9fc7",bColor:"#c8d2dc",hint:"A basketball represents Earth. The Moon keeps the same size ratio and the real average Earth–Moon separation.",insight:"This is a center-to-center distance. Earth and Moon are not touching: there is about 30 Earth diameters between their centers."},
-    "sun-earth":{a:"Sun",b:"Earth",diamA:1391400,diamB:12742,distance:AU,unit:"km",aColor:"#ffc878",bColor:"#55b9c8",hint:"The Sun is the anchor. Earth becomes a tiny bead at the same scale, 1 AU away.",insight:"This comparison shows why a scale model of the Sun–Earth distance needs a lot of empty space: even a basketball-sized Sun puts Earth many meters away."},
-    "sun-neptune":{a:"Sun",b:"Neptune",diamA:1391400,diamB:49244,distance:4.5e9,unit:"km",aColor:"#ffc878",bColor:"#668be9",hint:"Neptune’s average distance is about 4.5 billion km from the Sun. The tool uses the average distance, not a snapshot of orbital positions.",insight:"At basketball scale, Neptune is still just a small bead—but it would be hundreds of meters away from the Sun."},
-    "sun-proxima":{a:"Sun",b:"Proxima Centauri",diamA:1391400,diamB:1391400*.154,distance:4.25*LY,unit:"ly",aColor:"#ffc878",bColor:"#ee8b6e",hint:"Proxima Centauri is the nearest individual star and part of the Alpha Centauri system. Its radius is about 0.154 times the Sun’s.",insight:"Golf-ball Sun in Salt Lake City: Proxima lands about 1,230 km away—roughly twice the straight-line Salt Lake City–Denver distance. So your Denver image has the right feel, but the scaled star lands farther out."},
-    "sun-galactic-center":{a:"Sun",b:"Milky Way center",diamA:1391400,diamB:null,distance:26000*LY,unit:"ly",aColor:"#ffc878",bColor:"#d6f36a",hint:"NASA estimates the Sun is about 26,000 light-years from the Milky Way’s center. The center is shown as a point.",insight:"Even with the Sun shrunk to a golf ball, the Milky Way’s center is millions of kilometers away in the model—many times the Earth–Moon distance."},
-    "milkyway-andromeda":{a:"Milky Way",b:"Andromeda",diamA:100000,diamB:220000,distance:2500000,unit:"ly",aColor:"#7ee4d1",bColor:"#bc9df5",hint:"The Milky Way’s disk is about 100,000 light-years across. Andromeda is about 220,000 light-years across; their centers are about 2.5 million light-years apart.",insight:"Shrink the Milky Way’s disk to a basketball: Andromeda’s disk becomes roughly 53 cm across, with the two galaxy centers about 6 meters apart. Smaller dwarf galaxies are closer; Andromeda is our nearest major galaxy neighbor."}
+    "earth-moon":{a:"Earth",b:"Moon",diamA:12742,diamB:3475,distanceKm:384400,aColor:"#4f9fc7",bColor:"#c8d2dc",hint:"A basketball represents Earth. The Moon keeps the same size ratio and the real average Earth–Moon separation.",insight:"This is a center-to-center distance. Earth and Moon are not touching: there is about 30 Earth diameters between their centers."},
+    "sun-earth":{a:"Sun",b:"Earth",diamA:1391400,diamB:12742,distanceKm:AU,aColor:"#ffc878",bColor:"#55b9c8",hint:"The Sun is the anchor. Earth becomes a tiny bead at the same scale, 1 AU away.",insight:"This comparison shows why a scale model of the Sun–Earth distance needs a lot of empty space: even a basketball-sized Sun puts Earth many meters away."},
+    "sun-neptune":{a:"Sun",b:"Neptune",diamA:1391400,diamB:49244,distanceKm:4.5e9,aColor:"#ffc878",bColor:"#668be9",hint:"Neptune’s average distance is about 4.5 billion km from the Sun. The tool uses the average distance, not a snapshot of orbital positions.",insight:"At basketball scale, Neptune is still just a small bead—but it would be hundreds of meters away from the Sun."},
+    "sun-proxima":{a:"Sun",b:"Proxima Centauri",diamA:1391400,diamB:1391400*.154,distanceKm:4.25*LY,aColor:"#ffc878",bColor:"#ee8b6e",hint:"Proxima Centauri is the nearest individual star and part of the Alpha Centauri system. Its radius is about 0.154 times the Sun’s.",insight:"Golf-ball Sun in Salt Lake City: Proxima lands about 1,230 km away—roughly twice the straight-line Salt Lake City–Denver distance. Your Denver image has the right feel, but the scaled star lands farther out."},
+    "sun-galactic-center":{a:"Sun",b:"Milky Way center",diamA:1391400,diamB:null,distanceKm:26000*LY,aColor:"#ffc878",bColor:"#d6f36a",hint:"NASA estimates the Sun is about 26,000 light-years from the Milky Way’s center. The center is shown as a point.",insight:"Even with the Sun shrunk to a golf ball, the Milky Way’s center is millions of kilometers away in the model—many times the Earth–Moon distance."},
+    "milkyway-andromeda":{a:"Milky Way disk",b:"Andromeda disk",diamA:100000*LY,diamB:220000*LY,distanceKm:2500000*LY,aColor:"#7ee4d1",bColor:"#bc9df5",hint:"The Milky Way’s disk is about 100,000 light-years across. Andromeda is about 220,000 light-years across; their centers are about 2.5 million light-years apart.",insight:"Shrink the Milky Way’s disk to a basketball: Andromeda’s disk becomes roughly 53 cm across, with the two galaxy centers about 6 meters apart. Smaller dwarf galaxies are closer; Andromeda is our nearest major galaxy neighbor."}
   };
   const $=id=>document.getElementById(id);
   const pairSelect=$("pair"),anchorSelect=$("anchor");
   const fmt=n=>new Intl.NumberFormat("en-US",{maximumFractionDigits:2}).format(n);
-  function diameterText(m){if(m>=1000)return fmt(m/100)+" m";if(m>=1)return fmt(m)+" cm";if(m>=.1)return fmt(m*10)+" mm";if(m>=.01)return fmt(m*10)+" mm";return fmt(m*10000)+" μm";}
-  function distanceText(m){if(m<1)return fmt(m*100)+" cm";if(m<1000)return fmt(m)+" m";if(m<1e6)return fmt(m/1000)+" km";return fmt(m/1e6)+" million km";}
-  function actualDistanceText(d,unit){if(unit==="ly")return fmt(d)+" light-years";if(d>=1e9)return fmt(d/1e9)+" billion km";if(d>=1e6)return fmt(d/1e6)+" million km";return fmt(d)+" km";}
+  function sizeText(m){if(m>=1000)return fmt(m/1000)+" km";if(m>=1)return fmt(m)+" m";if(m>=.01)return fmt(m*100)+" cm";if(m>=.001)return fmt(m*1000)+" mm";return fmt(m*1e6)+" μm"}
+  function distanceText(m){if(m<1)return fmt(m*100)+" cm";if(m<1000)return fmt(m)+" m";if(m<1e9)return fmt(m/1000)+" km";return fmt(m/1e9)+" million km"}
+  function actualDistanceText(km){if(km>=LY)return fmt(km/LY)+" light-years";if(km>=1e9)return fmt(km/1e9)+" billion km";if(km>=1e6)return fmt(km/1e6)+" million km";return fmt(km)+" km"}
   function anchorSizeCm(){if(anchorSelect.value==="custom"){const v=Number($("custom-size").value);return Number.isFinite(v)&&v>0?v:10}return Number(anchorSelect.value)}
   function scaleWord(){if(anchorSelect.value==="custom")return "custom sphere";return anchorSelect.options[anchorSelect.selectedIndex].text.split(" · ")[0]}
   function render(){
-    const p=pairs[pairSelect.value], standinM=anchorSizeCm()/100,ratio=standinM/p.diamA;
-    const otherSize=p.diamB===null?null:p.diamB*ratio;
-    const scaledGap=p.distance*ratio;
+    const p=pairs[pairSelect.value],standinM=anchorSizeCm()/100,standinKm=standinM/1000,ratio=standinKm/p.diamA;
+    const otherSizeKm=p.diamB===null?null:p.diamB*ratio;
+    const scaledGapM=p.distanceKm*ratio*1000;
     $("custom-wrap").classList.toggle("visible",anchorSelect.value==="custom");
     $("result-title").textContent=p.a+" and "+p.b+", scaled";
-    $("pair-distance").textContent="Actual separation · "+actualDistanceText(p.distance,p.unit);
+    $("pair-distance").textContent="Actual separation · "+actualDistanceText(p.distanceKm);
     $("anchor-stat-label").textContent=p.a+" becomes";
-    $("anchor-result").textContent=scaleWord()+" · "+diameterText(anchorSizeCm());
+    $("anchor-result").textContent=scaleWord()+" · "+sizeText(standinM);
     $("scale-ratio").textContent="Scale ratio · 1 : "+fmt(1/ratio);
-    $("gap-result").textContent=distanceText(scaledGap);
-    $("gap-sub").textContent=fmt(scaledGap/standinM)+" "+scaleWord().toLowerCase()+" diameters between centers";
+    $("gap-result").textContent=distanceText(scaledGapM);
+    $("gap-sub").textContent=fmt(scaledGapM/standinM)+" "+scaleWord().toLowerCase()+" diameters between centers";
     $("target-stat-label").textContent=p.b+" becomes";
-    $("target-result").textContent=otherSize===null?"a point":diameterText(otherSize);
-    $("target-sub").textContent=otherSize===null?"Centers have no physical diameter in this model":"Scaled diameter · "+fmt(otherSize)+" cm";
+    const otherSizeM=otherSizeKm===null?null:otherSizeKm*1000;
+    $("target-result").textContent=otherSizeM===null?"a point":sizeText(otherSizeM);
+    $("target-sub").textContent=otherSizeM===null?"Centers have no physical diameter in this model":"Scaled diameter · "+sizeText(otherSizeM);
     $("scene-a-label").textContent=p.a;
     $("scene-b-label").textContent=p.b;
-    $("scene-gap").textContent=distanceText(scaledGap);
+    $("scene-gap").textContent=distanceText(scaledGapM);
     $("insight-text").textContent=p.insight;
     $("pair-hint").textContent=p.hint;
     const aPx=Math.max(20,Math.min(76,20+anchorSizeCm()*.7));
-    const bRatio=otherSize===null?0.13:otherSize/anchorSizeCm();
-    const bPx=otherSize===null?7:Math.max(4,Math.min(112,aPx*bRatio));
+    const bRatio=otherSizeM===null?0.13:otherSizeM/standinM;
+    const bPx=otherSizeM===null?7:Math.max(4,Math.min(112,aPx*bRatio));
     $("object-a").style.setProperty("--size",aPx+"px");
     $("object-a").style.setProperty("--color",p.aColor);
     $("object-b").style.setProperty("--size",bPx+"px");
     $("object-b").style.setProperty("--color",p.bColor);
-    $("object-b").classList.toggle("point",otherSize===null);
+    $("object-b").classList.toggle("point",otherSizeM===null);
     $("anchor-label").textContent="Scale "+p.a+" to";
   }
   pairSelect.addEventListener("change",render);anchorSelect.addEventListener("change",render);$("custom-size").addEventListener("input",render);render();
