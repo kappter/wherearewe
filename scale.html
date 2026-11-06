@@ -136,6 +136,8 @@ main{padding:55px 0 70px}.eyebrow{margin:0 0 11px;color:var(--lime);font-size:.7
     "milkyway-andromeda":{a:"Milky Way disk",b:"Andromeda disk",diamA:100000*LY,diamB:220000*LY,distanceKm:2500000*LY,aColor:"#7ee4d1",bColor:"#bc9df5",hint:"The Milky Way’s disk is about 100,000 light-years across. Andromeda is about 220,000 light-years across; their centers are about 2.5 million light-years apart.",insight:"Shrink the Milky Way’s disk to a basketball: Andromeda’s disk becomes roughly 53 cm across, with the two galaxy centers about 6 meters apart. Smaller dwarf galaxies are closer; Andromeda is our nearest major galaxy neighbor."}
   };
 
+  const $=id=>document.getElementById(id);
+  const fmt=n=>new Intl.NumberFormat("en-US",{maximumFractionDigits:2}).format(n);
   const catalog=[
     ["galaxy-lmc","Large Magellanic Cloud",163000,32000,"#e77ca8","A nearby dwarf galaxy orbiting the Milky Way; distance and diameter are rounded estimates."],
     ["galaxy-smc","Small Magellanic Cloud",200000,7000,"#ba8de8","A nearby dwarf galaxy in the Local Group; values are approximate."],
@@ -184,9 +186,7 @@ main{padding:55px 0 70px}.eyebrow{margin:0 0 11px;color:var(--lime);font-size:.7
     $("constellation-description").textContent=c.desc;svg.setAttribute("aria-label",c.name+" illustrative star pattern");
   }
   $("constellation-select").addEventListener("change",drawConstellation);drawConstellation();
-  const $=id=>document.getElementById(id);
   const pairSelect=$("pair"),anchorSelect=$("anchor");
-  const fmt=n=>new Intl.NumberFormat("en-US",{maximumFractionDigits:2}).format(n);
   function sizeText(m){if(m>=1000)return fmt(m/1000)+" km";if(m>=1)return fmt(m)+" m";if(m>=.01)return fmt(m*100)+" cm";if(m>=.001)return fmt(m*1000)+" mm";if(m>=1e-6)return fmt(m*1e6)+" μm";if(m>=1e-9)return fmt(m*1e9)+" nm";if(m>=1e-12)return fmt(m*1e12)+" pm";if(m>=1e-18)return fmt(m*1e15)+" fm";return m.toExponential(2)+" m"}
   function distanceText(m){if(m<1e-18)return m.toExponential(2)+" m";if(m<1e-15)return fmt(m*1e18)+" am";if(m<1e-12)return fmt(m*1e15)+" fm";if(m<1e-9)return fmt(m*1e12)+" pm";if(m<1e-6)return fmt(m*1e9)+" nm";if(m<1e-3)return fmt(m*1e6)+" μm";if(m<1e-2)return fmt(m*1000)+" mm";if(m<1)return fmt(m*100)+" cm";if(m<1000)return fmt(m)+" m";if(m<1e9)return fmt(m/1000)+" km";return fmt(m/1e9)+" million km"}
   function actualDistanceText(km){if(km>=LY)return fmt(km/LY)+" light-years";if(km>=1e9)return fmt(km/1e9)+" billion km";if(km>=1e6)return fmt(km/1e6)+" million km";return fmt(km)+" km"}
