@@ -17,8 +17,8 @@ main{padding:55px 0 70px}.eyebrow{margin:0 0 11px;color:var(--lime);font-size:.7
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.stat{min-height:124px;padding:17px;border:1px solid #ffffff16;border-radius:12px;background:#0c1416a8}.stat-label{color:var(--quiet);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase}.stat-value{margin-top:7px;font:400 clamp(1.35rem,3vw,2rem)/1.12 var(--serif);letter-spacing:-.025em;color:var(--paper);overflow-wrap:anywhere}.stat-sub{margin-top:7px;color:var(--muted);font-size:.75rem}
 .scene{margin-top:13px;padding:20px 22px;border:1px solid #ffffff16;border-radius:12px;background:#0c1416a8}.scene-head{display:flex;justify-content:space-between;gap:15px;align-items:center;color:var(--quiet);font-size:.71rem;letter-spacing:.1em;text-transform:uppercase}.scene-track{height:132px;display:grid;grid-template-columns:minmax(70px,1fr) minmax(0,3fr) minmax(70px,1fr);align-items:center;position:relative}.object{position:relative;z-index:1;display:grid;place-items:center;justify-self:center;width:var(--size,42px);height:var(--size,42px);min-width:3px;min-height:3px;border-radius:50%;background:radial-gradient(circle at 32% 27%,#fff8,var(--color,#d6f36a) 44%,#1a2523 130%);box-shadow:0 0 27px color-mix(in srgb,var(--color,#d6f36a) 32%,transparent);border:1px solid color-mix(in srgb,var(--color,#d6f36a) 70%,white)}.object.point{width:9px!important;height:9px!important;min-width:9px;min-height:9px;background:var(--aqua);box-shadow:0 0 18px var(--aqua)}.gap{position:relative;display:grid;place-items:center;height:100%}.gap::before{content:"";height:1px;width:100%;background:linear-gradient(90deg,#ffffff20,var(--lime),#ffffff20)}.gap::after{content:"";position:absolute;right:0;width:8px;height:8px;border-top:1px solid var(--lime);border-right:1px solid var(--lime);transform:rotate(45deg)}.gap-label{position:absolute;z-index:2;top:50%;transform:translateY(-50%);padding:5px 9px;border-radius:999px;background:#0c1416;color:var(--lime);font-size:.78rem;font-weight:700;white-space:nowrap}.scene-label{position:absolute;top:calc(50% + 30px);left:50%;transform:translateX(-50%);width:130px;text-align:center;color:var(--muted);font-size:.7rem}.object-caption{margin-top:-8px;text-align:center;color:var(--muted);font-size:.75rem}.scene-note{margin:11px 0 0;color:var(--quiet);font-size:.7rem;text-align:center}
 .fit-card{margin-top:13px;padding:18px 20px;border:1px solid #d6f36a45;border-radius:12px;background:linear-gradient(120deg,#d6f36a12,transparent 70%),#0c1416a8}.fit-eyebrow{margin:0;color:var(--lime);font-size:.66rem;font-weight:750;letter-spacing:.14em;text-transform:uppercase}.fit-card h3{margin:5px 0 3px;font:400 1.55rem/1.15 var(--serif);letter-spacing:-.025em}.fit-card p:last-child{margin:0;color:var(--muted);font-size:.82rem}.fit-microscope{margin-top:11px!important;padding-top:10px;border-top:1px solid #ffffff18;color:var(--paper)!important}.fit-microscope strong{color:var(--aqua)}.insight{display:grid;grid-template-columns:35px 1fr;gap:12px;align-items:start;margin-top:13px;padding:16px;border-left:2px solid var(--aqua);border-radius:0 10px 10px 0;background:#7ee4d108;color:var(--muted);font-size:.84rem}.insight-mark{display:grid;place-items:center;width:28px;height:28px;border:1px solid #7ee4d160;border-radius:50%;color:var(--aqua)}
-.method{margin-top:34px;padding:20px 0 0;border-top:1px solid var(--line);color:var(--quiet);font-size:.78rem}.method strong{color:var(--muted)}.sources{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px 15px}.sources a{color:var(--muted);text-underline-offset:3px}.sources a:hover{color:var(--lime)}
-footer{display:flex;justify-content:space-between;gap:15px;padding:18px 0 27px;border-top:1px solid var(--line);color:var(--quiet);font-size:.72rem}footer a{color:var(--muted);text-underline-offset:3px}
+.constellation{margin-top:13px}.constellation-head{display:flex;justify-content:space-between;align-items:end;gap:20px}.constellation-head h2{margin:3px 0 0;font:400 1.7rem/1.1 var(--serif)}.constellation-head .field{width:min(340px,100%)}.constellation-chart{margin-top:16px;border:1px solid #ffffff14;border-radius:12px;background:radial-gradient(ellipse at center,#243638 0, #101719 72%);overflow:hidden}.constellation-chart svg{display:block;width:100%;height:auto;min-height:220px}.constellation-chart .line{stroke:#7ee4d1;stroke-opacity:.56;stroke-width:1.5}.constellation-chart .star{fill:#f2efdf;stroke:#7ee4d1;stroke-width:1.5}.constellation-chart text{fill:#b2c0b7;font:12px var(--sans)}.constellation-chart .title{fill:#d6f36a;font:600 14px var(--sans);letter-spacing:.08em}.constellation-note{margin:8px 0 0;color:var(--muted);font-size:.78rem}.method{margin-top:34px;padding:20px 0 0;border-top:1px solid var(--line);color:var(--quiet);font-size:.78rem}.method strong{color:var(--muted)}.sources{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px 15px}.sources a{color:var(--muted);text-underline-offset:3px}.sources a:hover{color:var(--lime)}
+@media(max-width:660px){.constellation-head{align-items:stretch;flex-direction:column}.constellation-head .field{width:100%}.constellation-chart svg{min-height:180px}}footer{display:flex;justify-content:space-between;gap:15px;padding:18px 0 27px;border-top:1px solid var(--line);color:var(--quiet);font-size:.72rem}footer a{color:var(--muted);text-underline-offset:3px}
 @media(max-width:660px){.wrap{width:min(100% - 30px,500px)}main{padding:42px 0 55px}.controls{grid-template-columns:1fr}.result-top{align-items:start;flex-direction:column;gap:7px}.pair-label{text-align:left}.stats{grid-template-columns:1fr}.stat{min-height:unset}.stat-value{font-size:1.7rem}.scene{padding:16px 12px}.scene-track{grid-template-columns:60px minmax(0,3fr) 60px}.scene-label{width:100px}footer{display:block}footer p+p{margin-top:6px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -43,6 +43,20 @@ footer{display:flex;justify-content:space-between;gap:15px;padding:18px 0 27px;b
           <option value="sun-proxima">Sun ↔ Proxima Centauri</option>
           <option value="sun-galactic-center">Sun ↔ Milky Way center</option>
           <option value="milkyway-andromeda">Milky Way center ↔ Andromeda center</option>
+          <optgroup label="Galaxies · Sun to galaxy">
+            <option value="galaxy-lmc">Large Magellanic Cloud</option><option value="galaxy-smc">Small Magellanic Cloud</option>
+            <option value="galaxy-andromeda">Andromeda Galaxy · M31</option><option value="galaxy-triangulum">Triangulum Galaxy · M33</option>
+            <option value="galaxy-bodes">Bode’s Galaxy · M81</option><option value="galaxy-cigar">Cigar Galaxy · M82</option>
+            <option value="galaxy-centaurus-a">Centaurus A · NGC 5128</option><option value="galaxy-pinwheel">Pinwheel Galaxy · M101</option>
+            <option value="galaxy-sombrero">Sombrero Galaxy · M104</option><option value="galaxy-whirlpool">Whirlpool Galaxy · M51</option>
+          </optgroup>
+          <optgroup label="Nebulae and star-forming clouds · Sun to nebula">
+            <option value="nebula-orion">Orion Nebula · M42</option><option value="nebula-eagle">Eagle Nebula · M16</option>
+            <option value="nebula-omega">Omega Nebula · M17</option><option value="nebula-ring">Ring Nebula · M57</option>
+            <option value="nebula-lagoon">Lagoon Nebula · M8</option><option value="nebula-crab">Crab Nebula · M1</option>
+            <option value="nebula-carina">Carina Nebula</option><option value="nebula-helix">Helix Nebula</option>
+            <option value="nebula-horsehead">Horsehead Nebula</option><option value="nebula-tarantula">Tarantula Nebula</option>
+          </optgroup>
         </select>
       </div>
       <div class="field">
@@ -81,6 +95,15 @@ footer{display:flex;justify-content:space-between;gap:15px;padding:18px 0 27px;b
       <div class="scene-note">Object diameters are proportional to each other; the gap is compressed to fit on screen.</div>
     </div>
     <section class="fit-card" aria-live="polite" aria-labelledby="fit-title"><p class="fit-eyebrow">Where would this model fit?</p><h3 id="fit-title"></h3><p id="fit-detail"></p><p class="fit-microscope" id="microscope-detail"></p></section>
+    <section class="constellation panel" aria-labelledby="constellation-title">
+      <div class="constellation-head"><div><p class="fit-eyebrow">Patterns in our sky</p><h2 id="constellation-title">Constellation explorer</h2></div>
+        <div class="field"><label for="constellation-select">Choose a familiar constellation</label><select id="constellation-select">
+          <option value="orion">Orion</option><option value="ursa">Ursa Major · Big Dipper</option><option value="cassiopeia">Cassiopeia</option><option value="scorpius">Scorpius</option><option value="leo">Leo</option><option value="cygnus">Cygnus · Northern Cross</option><option value="lyra">Lyra</option><option value="taurus">Taurus</option><option value="gemini">Gemini</option><option value="canis">Canis Major</option><option value="sagittarius">Sagittarius</option><option value="crux">Crux · Southern Cross</option>
+        </select></div></div>
+      <div class="constellation-chart"><svg id="constellation-svg" viewBox="0 0 600 300" role="img" aria-label="Illustrative star pattern"></svg></div>
+      <p id="constellation-description" class="hint"></p>
+      <p class="constellation-note">A sky pattern, not a physical object: its stars can be hundreds or thousands of light-years apart. The diagram shows angular arrangement only, with no depth scale.</p>
+    </section>
     <div class="insight"><span class="insight-mark" aria-hidden="true">✳</span><div id="insight-text"></div></div>
   </section>
   <aside class="method">
@@ -112,6 +135,55 @@ footer{display:flex;justify-content:space-between;gap:15px;padding:18px 0 27px;b
     "sun-galactic-center":{a:"Sun",b:"Milky Way center",diamA:1391400,diamB:null,distanceKm:26000*LY,aColor:"#ffc878",bColor:"#d6f36a",hint:"NASA estimates the Sun is about 26,000 light-years from the Milky Way’s center. The center is shown as a point.",insight:"Even with the Sun shrunk to a golf ball, the Milky Way’s center is millions of kilometers away in the model—many times the Earth–Moon distance."},
     "milkyway-andromeda":{a:"Milky Way disk",b:"Andromeda disk",diamA:100000*LY,diamB:220000*LY,distanceKm:2500000*LY,aColor:"#7ee4d1",bColor:"#bc9df5",hint:"The Milky Way’s disk is about 100,000 light-years across. Andromeda is about 220,000 light-years across; their centers are about 2.5 million light-years apart.",insight:"Shrink the Milky Way’s disk to a basketball: Andromeda’s disk becomes roughly 53 cm across, with the two galaxy centers about 6 meters apart. Smaller dwarf galaxies are closer; Andromeda is our nearest major galaxy neighbor."}
   };
+
+  const catalog=[
+    ["galaxy-lmc","Large Magellanic Cloud",163000,32000,"#e77ca8","A nearby dwarf galaxy orbiting the Milky Way; distance and diameter are rounded estimates."],
+    ["galaxy-smc","Small Magellanic Cloud",200000,7000,"#ba8de8","A nearby dwarf galaxy in the Local Group; values are approximate."],
+    ["galaxy-andromeda","Andromeda Galaxy · M31",2500000,220000,"#bc9df5","Our nearest major spiral-galaxy neighbor; the Sun-to-galaxy distance and disk size are rounded."],
+    ["galaxy-triangulum","Triangulum Galaxy · M33",3000000,60000,"#8fb7ff","A Local Group spiral galaxy; approximate distance and diameter."],
+    ["galaxy-bodes","Bode’s Galaxy · M81",11600000,90000,"#7ee4d1","A bright nearby spiral galaxy; rounded distance and diameter."],
+    ["galaxy-cigar","Cigar Galaxy · M82",12000000,40000,"#f1a37e","A starburst galaxy near M81; dimensions are approximate."],
+    ["galaxy-centaurus-a","Centaurus A · NGC 5128",12000000,60000,"#df9c78","A prominent nearby galaxy; distance and visible extent are rounded."],
+    ["galaxy-pinwheel","Pinwheel Galaxy · M101",25000000,170000,"#ffc878","A large face-on spiral; approximate diameter and distance."],
+    ["galaxy-sombrero","Sombrero Galaxy · M104",28000000,50000,"#d6c28a","A bright edge-on galaxy; values are rounded estimates."],
+    ["galaxy-whirlpool","Whirlpool Galaxy · M51",31000000,60000,"#8fb7ff","A famous interacting spiral pair; diameter refers to the main galaxy, approximately."],
+    ["nebula-orion","Orion Nebula · M42",1500,24,"#79cde0","A nearby star-forming nebula; broad dimensions vary with the boundary used."],
+    ["nebula-eagle","Eagle Nebula · M16",7000,70,"#e8a769","The star-forming region around the Pillars of Creation; extent is approximate."],
+    ["nebula-omega","Omega Nebula · M17",5500,40,"#f0b879","A bright star-forming nebula; approximate visible extent."],
+    ["nebula-ring","Ring Nebula · M57",2000,1,"#b7a4ef","A planetary nebula; rounded distance and shell diameter."],
+    ["nebula-lagoon","Lagoon Nebula · M8",5200,110,"#e77c96","A large star-forming region; approximate extent."],
+    ["nebula-crab","Crab Nebula · M1",6500,6,"#f28b78","Supernova remnant; about six light-years across."],
+    ["nebula-carina","Carina Nebula",7500,300,"#ffd17a","A vast star-forming complex; approximate size."],
+    ["nebula-helix","Helix Nebula",650,2.5,"#83d8cf","A nearby planetary nebula; approximate shell diameter."],
+    ["nebula-horsehead","Horsehead Nebula",1600,2.2,"#a48af0","Dark nebula silhouette; the listed size is an illustrative width."],
+    ["nebula-tarantula","Tarantula Nebula",170000,360,"#ef8ea0","A giant star-forming nebula in the Large Magellanic Cloud; approximate extent."]
+  ];
+  for(const [id,name,distanceLy,diameterLy,color,insight] of catalog){
+    pairs[id]={a:"Sun",b:name,diamA:1391400,diamB:diameterLy*LY,distanceKm:distanceLy*LY,aColor:"#ffc878",bColor:color,hint:name+" lies about "+fmt(distanceLy)+" light-years away. The size and distance are rounded, illustrative astronomical estimates.",insight:insight+" This Sun-to-object comparison uses the Sun as a point of reference and keeps the same scale ratio."};
+  }
+  const constellations={
+    orion:{name:"ORION",desc:"The Hunter, marked by the three-star belt. Its bright stars form a familiar winter-sky pattern.",pts:[[120,72,"Betelgeuse"],[230,142,"Bellatrix"],[270,158,"Mintaka"],[300,165,"Alnilam"],[330,172,"Alnitak"],[370,188,"Saiph"],[475,235,"Rigel"],[285,210,"Sword"]],lines:[[0,1],[1,2],[2,3],[3,4],[4,5],[4,6],[2,7]]},
+    ursa:{name:"URSA MAJOR · BIG DIPPER",desc:"The Big Dipper is an asterism within Ursa Major, not a constellation by itself.",pts:[[105,95,"Dubhe"],[180,75,"Merak"],[250,98,"Phecda"],[225,165,"Megrez"],[320,150,"Alioth"],[395,115,"Mizar"],[475,75,"Alkaid"]],lines:[[0,1],[1,2],[2,3],[3,0],[3,4],[4,5],[5,6]]},
+    cassiopeia:{name:"CASSIOPEIA",desc:"Five bright stars make the distinctive W or M shape, depending on its orientation in the sky.",pts:[[95,175,"Schedar"],[195,95,"Caph"],[290,170,"Gamma Cas"],[390,80,"Ruchbah"],[500,150,"Segin"]],lines:[[0,1],[1,2],[2,3],[3,4]]},
+    scorpius:{name:"SCORPIUS",desc:"A sweeping hook ending at Antares and the curved tail; best known in the summer sky.",pts:[[105,82,"Graffias"],[185,95,"Dschubba"],[265,145,"Antares"],[340,185,"Shaula"],[405,220,"Lesath"],[465,190,"Girtab"],[505,125,"Sargas"]],lines:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6]]},
+    leo:{name:"LEO",desc:"Leo’s sickle outlines the head, with a triangular hindquarter and bright Regulus.",pts:[[105,82,"Epsilon"],[155,135,"Algieba"],[230,155,"Regulus"],[180,220,"Zosma"],[300,225,"Denebola"],[390,170,"Chertan"],[300,100,"Adhafera"]],lines:[[0,1],[1,2],[1,6],[2,3],[3,4],[4,5],[5,2]]},
+    cygnus:{name:"CYGNUS · NORTHERN CROSS",desc:"The Milky Way’s Swan also traces a large cross, with Deneb at its head.",pts:[[300,55,"Deneb"],[300,135,"Sadr"],[300,240,"Albireo"],[150,135,"Delta Cyg"],[455,135,"Epsilon Cyg"]],lines:[[0,1],[1,2],[3,1],[1,4]]},
+    lyra:{name:"LYRA",desc:"A compact parallelogram hangs beside bright Vega, one of the Summer Triangle stars.",pts:[[120,100,"Vega"],[260,130,"Zeta"],[340,205,"Delta 2"],[250,235,"Gamma"],[190,195,"Beta"]],lines:[[0,1],[1,2],[2,3],[3,4],[4,0]]},
+    taurus:{name:"TAURUS",desc:"The V-shaped Hyades and bright Aldebaran mark the Bull’s face; the Pleiades sit nearby.",pts:[[110,90,"Elnath"],[215,155,"Ain"],[290,185,"Aldebaran"],[350,145,"Theta"],[420,95,"Gamma"],[465,215,"Zeta"],[520,70,"Pleiades"]],lines:[[0,1],[1,2],[2,3],[3,4],[2,5]]},
+    gemini:{name:"GEMINI",desc:"The twin stars Castor and Pollux head two parallel chains of stars.",pts:[[170,60,"Castor"],[200,120,"Wasat"],[230,185,"Alhena"],[260,245,"Propus"],[400,55,"Pollux"],[390,125,"Mebsuta"],[370,190,"Tejat"],[350,245,"Alzirr"]],lines:[[0,1],[1,2],[2,3],[4,5],[5,6],[6,7]]},
+    canis:{name:"CANIS MAJOR",desc:"Sirius, the brightest star in the night sky, anchors the Greater Dog.",pts:[[115,130,"Sirius"],[220,100,"Mirzam"],[310,145,"Wezen"],[400,195,"Adhara"],[480,235,"Aludra"],[260,220,"Furud"]],lines:[[0,1],[1,2],[2,3],[3,4],[2,5]]},
+    sagittarius:{name:"SAGITTARIUS",desc:"The Teapot asterism sits toward the Milky Way’s bright central region.",pts:[[100,160,"Kaus Borealis"],[180,110,"Nunki"],[270,140,"Ascella"],[355,195,"Kaus Australis"],[440,200,"Kaus Media"],[460,125,"Phi Sgr"],[350,90,"Tau Sgr"]],lines:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,1]]},
+    crux:{name:"CRUX · SOUTHERN CROSS",desc:"Four prominent stars trace the Southern Cross, a compact pattern in the southern sky.",pts:[[300,55,"Gacrux"],[300,145,"Acrux"],[130,150,"Imai"],[465,150,"Ginan"]],lines:[[0,1],[2,1],[1,3]]}
+  };
+  function drawConstellation(){
+    const c=constellations[$("constellation-select").value],svg=$("constellation-svg");
+    svg.innerHTML="";
+    const title=document.createElementNS("http://www.w3.org/2000/svg","text");title.setAttribute("x","18");title.setAttribute("y","25");title.setAttribute("class","title");title.textContent=c.name;svg.appendChild(title);
+    for(const [a,b] of c.lines){const line=document.createElementNS(svg.namespaceURI,"line");line.setAttribute("x1",c.pts[a][0]);line.setAttribute("y1",c.pts[a][1]);line.setAttribute("x2",c.pts[b][0]);line.setAttribute("y2",c.pts[b][1]);line.setAttribute("class","line");svg.appendChild(line)}
+    c.pts.forEach(([x,y,label])=>{const star=document.createElementNS(svg.namespaceURI,"circle");star.setAttribute("cx",x);star.setAttribute("cy",y);star.setAttribute("r",label==="Vega"||label==="Sirius"||label==="Betelgeuse"||label==="Rigel"?5:3.5);star.setAttribute("class","star");svg.appendChild(star);const text=document.createElementNS(svg.namespaceURI,"text");text.setAttribute("x",x+8);text.setAttribute("y",y-8);text.textContent=label;svg.appendChild(text)});
+    $("constellation-description").textContent=c.desc;svg.setAttribute("aria-label",c.name+" illustrative star pattern");
+  }
+  $("constellation-select").addEventListener("change",drawConstellation);drawConstellation();
   const $=id=>document.getElementById(id);
   const pairSelect=$("pair"),anchorSelect=$("anchor");
   const fmt=n=>new Intl.NumberFormat("en-US",{maximumFractionDigits:2}).format(n);
