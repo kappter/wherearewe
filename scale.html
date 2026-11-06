@@ -226,7 +226,7 @@ main{padding:55px 0 70px}.eyebrow{margin:0 0 11px;color:var(--lime);font-size:.7
     const modelSpanM=scaledGapM+standinM/2+(otherSizeM||0)/2;
     const fit=fitDescription(modelSpanM);
     $("fit-title").textContent=fit.title;
-    $("fit-detail").textContent=fit.detail;\n    $("microscope-detail").innerHTML="<strong>Microscope scale:</strong> "+microscopeDescription(Math.min(standinM,otherSizeM===null?standinM:otherSizeM);
+    $("fit-detail").textContent=fit.detail;\n    $("microscope-detail").innerHTML="<strong>Microscope scale:</strong> "+microscopeDescription(Math.min(standinM,otherSizeM===null?standinM:otherSizeM));
     $("target-result").textContent=otherSizeM===null?"a point":sizeText(otherSizeM);
     $("target-sub").textContent=otherSizeM===null?"Centers have no physical diameter in this model":"Scaled diameter · "+sizeText(otherSizeM);
     $("scene-a-label").textContent=p.a;
