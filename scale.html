@@ -107,14 +107,14 @@ main{padding:55px 0 70px}.eyebrow{margin:0 0 11px;color:var(--lime);font-size:.7
     <div class="insight"><span class="insight-mark" aria-hidden="true">✳</span><div id="insight-text"></div></div>
   </section>
   <aside class="method">
-    <strong>How the scale works:</strong> stand-in diameter ÷ real diameter of object A = scale factor. Multiply object B’s real diameter and the real separation by that factor. Distances are center-to-center; planets use average or mean distances. Galaxy “center” comparisons treat the centers as points. Pea (8 mm) and sand (0.5 mm) sizes are representative. “Hydrogen nucleus” means one proton; 1.68 fm is an illustrative diameter, twice the proton’s rms charge radius, not a hard edge.
+    <strong>How the scale works:</strong> stand-in diameter ÷ real diameter of object A = scale factor. Multiply object B’s real diameter and the real separation by that factor. Distances are center-to-center; planets use average or mean distances. Galaxy “center” comparisons treat the centers as points. Galaxy and nebula distances and diameters are rounded illustrative estimates; measured extents vary by source and by the boundary used. Constellation sketches show apparent patterns, not physical star groupings. Pea (8 mm) and sand (0.5 mm) sizes are representative. “Hydrogen nucleus” means one proton; 1.68 fm is an illustrative diameter, twice the proton’s rms charge radius, not a hard edge.
     <div class="sources" aria-label="Sources">
       <a href="https://science.nasa.gov/moon/by-the-numbers/" target="_blank" rel="noreferrer">NASA · Earth and Moon</a>
       <a href="https://science.nasa.gov/solar-system/planets/planet-sizes-and-locations-in-our-solar-system/" target="_blank" rel="noreferrer">NASA · Planet distances</a>
       <a href="https://science.nasa.gov/exoplanets/other-stars-other-worlds/our-nearest-celestial-neighbor-an-exotic-3-star-system/" target="_blank" rel="noreferrer">NASA · Proxima Centauri</a>
       <a href="https://exoplanetarchive.ipac.caltech.edu/overview/Proxima" target="_blank" rel="noreferrer">NASA Exoplanet Archive · Proxima radius</a>
       <a href="https://science.nasa.gov/asset/hubble/milky-way-bulge/" target="_blank" rel="noreferrer">NASA · Galactic center distance</a>
-      <a href="https://science.nasa.gov/universe/exoplanets/our-milky-way-galaxy-how-big-is-space/" target="_blank" rel="noreferrer">NASA · Milky Way and Andromeda size</a>
+      <a href="https://science.nasa.gov/universe/exoplanets/our-milky-way-galaxy-how-big-is-space/" target="_blank" rel="noreferrer">NASA · Milky Way and Andromeda size</a>\n      <a href="https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/" target="_blank" rel="noreferrer">NASA · Hubble Messier catalog</a>\n      <a href="https://www.iau.org/public/themes/constellations/" target="_blank" rel="noreferrer">IAU · Constellations are sky regions</a>
       <a href="https://www.usga.org/equipment-standards/equipment-rules-2019/equipment-rules/part-4-rule-4.html" target="_blank" rel="noreferrer">USGA · Golf ball minimum size</a>
       <a href="https://content.mlb.com/documents/2/2/4/305750224/2019_Official_Baseball_Rules_FINAL_.pdf" target="_blank" rel="noreferrer">MLB · Baseball circumference</a>
       <a href="https://www.nba.com/news/faq" target="_blank" rel="noreferrer">NBA · Basketball size</a>
@@ -226,7 +226,7 @@ main{padding:55px 0 70px}.eyebrow{margin:0 0 11px;color:var(--lime);font-size:.7
     const modelSpanM=scaledGapM+standinM/2+(otherSizeM||0)/2;
     const fit=fitDescription(modelSpanM);
     $("fit-title").textContent=fit.title;
-    $("fit-detail").textContent=fit.detail;
+    $("fit-detail").textContent=fit.detail;\n    $("microscope-detail").innerHTML="<strong>Microscope scale:</strong> "+microscopeDescription(Math.min(standinM,otherSizeM===null?standinM:otherSizeM);
     $("target-result").textContent=otherSizeM===null?"a point":sizeText(otherSizeM);
     $("target-sub").textContent=otherSizeM===null?"Centers have no physical diameter in this model":"Scaled diameter · "+sizeText(otherSizeM);
     $("scene-a-label").textContent=p.a;
