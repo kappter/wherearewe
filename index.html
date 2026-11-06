@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101719">
-  <meta name="description" content="Two astronomy thought experiments about our planets, motion, light, and the time it takes to cross the sky.">
+  <meta name="description" content="Three astronomy tools about scale, motion, light, and the time objects spend crossing our sky.">
   <title>Where Are We? — Astronomy in motion</title>
   <style>
     :root {
@@ -101,6 +101,14 @@
     .planet-note { display: flex; justify-content: space-between; align-items: center; gap: 18px; margin: 13px 3px 0; color: var(--quiet); font-size: .75rem; }
     .planet-note a { color: var(--lime); text-decoration-color: #d6f36a66; text-underline-offset: 3px; white-space: nowrap; }
     .planet-note a:hover { color: var(--paper); }
+    .scale-teaser { display:grid; grid-template-columns:142px minmax(0,1fr) auto; gap:22px; align-items:center; margin-top:16px; padding:18px 24px; border:1px solid #d6f36a35; border-radius:15px; background:linear-gradient(110deg,#d6f36a0b,#ffffff04); text-decoration:none; transition:transform .2s ease,border-color .2s ease; }
+    .scale-teaser:hover,.scale-teaser:focus-visible { transform:translateY(-3px); border-color:#d6f36a90; outline:none; }
+    .scale-illustration { width:142px; height:85px; }
+    .scale-kicker { margin:0 0 4px; color:var(--lime); font-size:.65rem; font-weight:750; letter-spacing:.15em; text-transform:uppercase; }
+    .scale-teaser h3 { margin:0; font:400 clamp(1.35rem,3vw,1.9rem)/1.08 var(--serif); letter-spacing:-.04em; }
+    .scale-teaser p:last-child { margin:7px 0 0; color:var(--muted); font-size:.81rem; max-width:560px; }
+    .scale-launch { display:inline-flex; align-items:center; gap:10px; color:var(--lime); font-size:.8rem; font-weight:720; white-space:nowrap; }
+    .scale-launch b { display:grid; place-items:center; width:31px; height:31px; border:1px solid #d6f36a66; border-radius:50%; font-size:1rem; }
     .bridge { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 22px; align-items: center; padding: 24px 0 83px; border-top: 1px solid var(--line); }
     .bridge p { margin: 0; color: var(--muted); font: 400 clamp(1.25rem, 2.7vw, 1.75rem)/1.35 var(--serif); }
     .bridge p:last-child { text-align: right; }
@@ -123,7 +131,12 @@
       .section-head p { margin-top: 9px; }
       .cards { grid-template-columns: 1fr; gap: 13px; }
       .card { min-height: 425px; }
-      .planet-lineup { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 19px; padding: 19px 8px; }\n      .planet-note { align-items: flex-start; flex-direction: column; gap: 8px; }\n      .bridge { gap: 12px; padding: 22px 0 63px; }
+      .planet-lineup { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 19px; padding: 19px 8px; }
+      .scale-teaser { grid-template-columns:72px minmax(0,1fr); gap:14px; padding:16px; }
+      .scale-illustration { width:72px; height:62px; }
+      .scale-launch { grid-column:2; }
+      .planet-note { align-items: flex-start; flex-direction: column; gap: 8px; }
+      .bridge { gap: 12px; padding: 22px 0 63px; }
       .bridge-mark { width: 42px; height: 42px; }
       footer { display: block; }
       footer p + p { margin-top: 7px; }
@@ -142,13 +155,13 @@
     <section class="wrap hero" aria-labelledby="hero-title">
       <p class="eyebrow">A small atlas of looking up</p>
       <h1 id="hero-title">Where are <em>we,</em><br>in the sky?</h1>
-      <p class="hero-copy"><strong>Two astronomy thought experiments.</strong> One follows light in motion. The other follows a world across the sky. Both turn a vast distance into something we can feel: time.</p>
+      <p class="hero-copy"><strong>Three astronomy tools.</strong> One scales the gaps, one follows light in motion, and one traces a world across the sky. Each turns a vast distance into something we can feel.</p>
       <a class="scroll-cue" href="#projects"><span aria-hidden="true">↓</span> Find your way in</a>
     </section>
     <section class="wrap projects" id="projects" aria-labelledby="projects-title">
       <div class="section-head">
         <h2 id="projects-title">Choose a point of view.</h2>
-        <p>Start with a moving object, or begin with the sky above your horizon.</p>
+        <p>Measure a cosmic gap, follow light in motion, or begin with the sky above your horizon.</p>
       </div>
       <div class="cards">
         <a class="card lightspeed" href="https://kappter.github.io/sun-at-light-speed/" target="_blank" rel="noopener noreferrer" aria-labelledby="light-title">
@@ -191,6 +204,19 @@
           <div class="card-foot"><span class="card-meta">A horizon-centered sky guide</span><span class="launch">Trace the sky <b aria-hidden="true">→</b></span></div>
         </a>
       </div>
+      <a class="scale-teaser" href="scale.html" aria-labelledby="scale-teaser-title">
+        <svg class="scale-illustration" viewBox="0 0 142 85" fill="none" aria-hidden="true">
+          <circle cx="25" cy="42" r="17" fill="#d6f36a" fill-opacity=".2" stroke="#d6f36a" stroke-opacity=".8"/>
+          <circle cx="25" cy="42" r="5" fill="#d6f36a"/>
+          <path d="M43 42H111" stroke="#d6f36a" stroke-opacity=".5" stroke-dasharray="3 5"/>
+          <circle cx="119" cy="42" r="7" fill="#7ee4d1" fill-opacity=".9"/>
+          <circle cx="119" cy="42" r="13" stroke="#7ee4d1" stroke-opacity=".35"/>
+          <text x="25" y="77" fill="#b2c0b7" font-size="8" text-anchor="middle" font-family="system-ui,sans-serif">EARTH</text>
+          <text x="119" y="77" fill="#b2c0b7" font-size="8" text-anchor="middle" fill-opacity=".9" font-family="system-ui,sans-serif">MOON</text>
+        </svg>
+        <div><p class="scale-kicker">Scale · size · distance</p><h3 id="scale-teaser-title">Scale the Cosmos</h3><p>If Earth fit in your hands, where would the Moon be? Scale familiar objects from our nearest neighbor to the gap between galaxies.</p></div>
+        <span class="scale-launch">Build a scale <b aria-hidden="true">→</b></span>
+      </a>
     </section>
     <section class="wrap neighborhood" aria-labelledby="neighborhood-title">
       <div class="neighborhood-head">
@@ -216,7 +242,7 @@
     </section>
   </main>
   <footer class="wrap">
-    <p>wherearewe · Visual astronomy, from our planetary neighborhood</p>
+    <p>wherearewe · A small suite of visual astronomy tools</p>
     <p>Made for the curious. <a href="https://github.com/kappter/wherearewe">View the project on GitHub ↗</a></p>
   </footer>
 </body>
